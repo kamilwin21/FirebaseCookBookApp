@@ -5,12 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     tools:context=".UserProfileActivity">
 
     <TextView
-        android:id="@+id/tw_userFromDatabase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="TextView"/>
+        android:textSize="25dp"
+        android:text="Profil użytkownika"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nazwa użytkownika"
+        />
+    <TextView
+        android:id="@+id/tw_UserName_ActivityUserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:hint="UserName"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        />
+    <TextView
+        android:id="@+id/tw_UserEmail_ActivityUserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:hint="UserName"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wiek"
+        />
+    <TextView
+        android:id="@+id/tw_UserAge_ActivityUserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:hint="UserName"
+        />
 
 </LinearLayout>

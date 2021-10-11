@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -27,20 +28,69 @@ class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val usersFragment = UsersFragment()
     private val searchFragment = SearchFragment()
-
+    
     lateinit var ref: DatabaseReference
     lateinit var usersList: MutableList<User>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(homeFragment)
+
+            var help: String
+            var check: String = intent.getStringExtra("btnBack").toString()
+            if(check == "Back")
+            {
+
+                replaceFragment(usersFragment)
+                usersList = mutableListOf()
+
+                ref = FirebaseDatabase.getInstance().getReference("Users")
+
+                ref.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+
+                        if (snapshot!!.exists()){
+                            for (h in snapshot.children){
+                                val user = h.getValue(User::class.java)
+                                usersList.add(user!!)
+                                RecyclerView_Users_Fragment.layoutManager = LinearLayoutManager(applicationContext)
+                                RecyclerView_Users_Fragment.adapter = UsersAdapter(applicationContext,usersList)
+
+
+                            }
+
+
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+
+
+                })
+
+
+
+            }else{
+                replaceFragment(homeFragment)
+
+            }
+          //  replaceFragment(usersFragment)
+
 
 
         bottom_navigation.setOnNavigationItemSelectedListener{
+
+
+
+
             when(it.itemId){
                 R.id.nav_home -> {
                     replaceFragment(homeFragment)
 
+                }
+                R.id.nav_add ->{
+                   // val intentAddPost = Intent(applicationContext,)
                 }
 
                 R.id.nav_users -> {
@@ -79,6 +129,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.nav_search -> replaceFragment(searchFragment)
+
             }
             true
 
@@ -114,6 +165,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+        super.onBackPressed()
+    }
 
 
 

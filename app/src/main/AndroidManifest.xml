@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppForLoginData">
+        <activity android:name=".AddRecipeActivity">
+
+
+        </activity>
+
         <activity android:name=".UserProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-
+                android:value=".MainActivity"/>
         </activity>
         <activity android:name=".ForgotPassword">
             <meta-data

@@ -56,6 +56,7 @@ class RegistrationActivity : AppCompatActivity() {
                     val age:String = editText_Age_MainActivity.text.toString()
                     val email:String = editText_EmailAdress_MainActivity.text.toString()
                     val password:String = editText_password_MainActivity.text.toString()
+                    val surname:String = editText_SurName_MainActivity.text.toString()
 
                     var tablica: ArrayList<Char> = ArrayList<Char>()
                     for (i in email)
@@ -85,7 +86,7 @@ class RegistrationActivity : AppCompatActivity() {
                                 {
                                     val database = Firebase.database
                                     val myRef = database.getReference("Users")
-                                    val user = User(FirebaseAuth.getInstance().currentUser!!.uid,email,password,name,age)
+                                    val user = User(FirebaseAuth.getInstance().currentUser!!.uid,email,password,name, surname,age)
 
                                     myRef.child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(user)
 

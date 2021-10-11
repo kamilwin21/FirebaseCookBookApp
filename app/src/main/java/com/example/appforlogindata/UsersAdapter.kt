@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.users_recycler_view.view.*
 
@@ -40,7 +42,9 @@ class UsersAdapter(val context:Context,val usersList: List<User>): RecyclerView.
 
         }
 
+
     }
+
 
     override fun getItemCount(): Int {
         return usersList.size
