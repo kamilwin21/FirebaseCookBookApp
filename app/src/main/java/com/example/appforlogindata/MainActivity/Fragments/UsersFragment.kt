@@ -1,4 +1,4 @@
-package com.example.appforlogindata.fragments
+package com.example.appforlogindata.MainActivity.Fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

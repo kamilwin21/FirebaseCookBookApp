@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginRegistration.Activities.ForgotPassword">
+    tools:context=".MainActivity.AddCategoryActivity">
+
 
     <EditText
-        android:id="@+id/et_forgotPassword_ForgotPassword"
+        android:id="@+id/et_nazwakategorii"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email(example@gmail.com)"
-        />
-    <Button
-        android:id="@+id/btn_forgotPassword_ForgotPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Odzyskaj hasło"
+        android:hint="Nazwa kategorii"
         />
 
+    <Button
+        android:id="@+id/btn_add_name_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
 </LinearLayout>

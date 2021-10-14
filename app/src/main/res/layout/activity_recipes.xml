@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity.RecipesActivity">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/HomeFragment"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_Przepisu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="Home Fragment" />
 
+        />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/HomeFragment_RecyclerView"
+        android:id="@+id/recyclerView_Recipes"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </LinearLayout>

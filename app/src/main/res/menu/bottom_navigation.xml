@@ -2,10 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_recipes"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Recipes" />
-
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Ulubione"
+        />
     <item
         android:id="@+id/nav_users"
         android:icon="@drawable/ic_baseline_emoji_people_24"

@@ -1,15 +1,13 @@
-package com.example.appforlogindata
+package com.example.appforlogindata.LoginRegistration.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.appforlogindata.MainActivity.MainActivity
+import com.example.appforlogindata.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class LoginActivity : AppCompatActivity() {
@@ -25,14 +23,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
         tw_forgotPassword_Login.setOnClickListener{
-            val intent = Intent(applicationContext,ForgotPassword::class.java)
+            val intent = Intent(applicationContext, ForgotPassword::class.java)
             startActivity(intent)
         }
 
         btn_signIn_Login.setOnClickListener {
 
             //Wczytywanie danych do logowania z edittext
-          //  val email:String = editText_EmailAdress_Login.text.toString()
+           // val email:String = editText_EmailAdress_Login.text.toString()
           //  val password:String = editText_password_Login.text.toString()
             val email:String = "kamilwin21@gmail.com"
             val password:String = "1234567"

@@ -1,8 +1,9 @@
-package com.example.appforlogindata
+package com.example.appforlogindata.LoginRegistration.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.appforlogindata.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
