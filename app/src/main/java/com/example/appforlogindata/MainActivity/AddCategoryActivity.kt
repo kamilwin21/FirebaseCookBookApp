@@ -21,6 +21,7 @@ class AddCategoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_category)
 
         if (intent.hasExtra("CategoryName")) {
+
             btn_add_name_category.text = "Edytuj kategorię"
             et_nazwakategorii.setText(intent.getStringExtra("CategoryName"))
         }else{

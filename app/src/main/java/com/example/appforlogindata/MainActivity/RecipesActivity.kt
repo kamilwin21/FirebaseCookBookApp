@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appforlogindata.MainActivity.Adapters.AdapterRecipes
 import com.example.appforlogindata.MainActivity.Classes.Recipes
@@ -23,22 +22,20 @@ import kotlin.collections.ArrayList
 
 class RecipesActivity : AppCompatActivity() {
     //Aktywność służy do operowania w recyclerView z przepisami
-
+    //AKTYWNOŚĆ TA ZOSTAŁA ZASTĄPIONA FRAGMENTEM AdapterRecyclerView_RecipesFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipes)
         tv_Przepisu.text = intent.getStringExtra("kategoria")
 
-        var pomocList: ArrayList<Recipes> = ArrayList()
-        var recipesList: ArrayList<Recipes> = ArrayList()
-
 
         var database = FirebaseDatabase.getInstance().getReference("Recipes").child(FirebaseAuth.getInstance().currentUser!!.uid)
         database.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists())
-                {
+                {   var pomocList: ArrayList<Recipes> = arrayListOf()
+                    var recipesList: ArrayList<Recipes> = arrayListOf()
                     var recipe: Recipes?
                     for (n in snapshot.children)
                     {
@@ -52,14 +49,17 @@ class RecipesActivity : AppCompatActivity() {
                         if(r.kategoria == tv_Przepisu.text)
                         {
                             recipesList.add(r)
-                            recyclerView_Recipes.layoutManager = LinearLayoutManager(applicationContext)
-                            recyclerView_Recipes.adapter = AdapterRecipes(applicationContext, recipesList)
                         }
-
                     }
+                    recyclerView_Recipes.layoutManager = LinearLayoutManager(applicationContext)
+                    recyclerView_Recipes.adapter = AdapterRecipes(applicationContext, recipesList)
+
+
+
 
 
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {

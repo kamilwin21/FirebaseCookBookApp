@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragments.RecipesFragment"
+    tools:context=".MainActivity.Fragments.RecipesFragment"
     android:orientation="vertical"
     >
 
@@ -25,12 +25,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="@color/teal_700"
-        >
 
-
-    </LinearLayout>
 </LinearLayout>

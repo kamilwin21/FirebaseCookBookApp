@@ -44,7 +44,6 @@ class RecipesFragment : Fragment() {
 
     override fun onStart() {
 
-
         //Tworzenie listy do pzrechowywania kategorii
         var categoriesList: ArrayList<CategoryRecipes> = ArrayList()
 
@@ -72,7 +71,18 @@ class RecipesFragment : Fragment() {
         })
 
 
+
+
         super.onStart()
+    }
+
+
+
+    override fun onResume() {
+
+
+
+        super.onResume()
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -106,6 +116,8 @@ class RecipesFragment : Fragment() {
 
         return super.onOptionsItemSelected(item)
     }
+
+
 
     companion object {
         /**

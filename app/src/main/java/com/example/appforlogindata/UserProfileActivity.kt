@@ -58,11 +58,15 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-       // Toast.makeText(applicationContext,"Powrót do MainActivity", Toast.LENGTH_SHORT).show()
-        var intent = Intent(applicationContext, MainActivity::class.java)
-        intent.putExtra("btnBack", "Back")
-        startActivity(intent)
 
+        if (supportFragmentManager.backStackEntryCount > 0)
+        {
+            supportFragmentManager.popBackStack()
+        }
+
+       // finish()
+
+        super.onBackPressed()
     }
 
 

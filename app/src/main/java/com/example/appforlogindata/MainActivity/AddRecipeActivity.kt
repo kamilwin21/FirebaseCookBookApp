@@ -17,6 +17,16 @@ class AddRecipeActivity : AppCompatActivity() {
 
 
         if (intent.hasExtra("kategoria1")) tvKategoria_dodajPrzepis.text = intent.getStringExtra("kategoria1")
+        if (intent.hasExtra("idR"))
+        {
+
+            btn_dodajPrzepis.setText("Edytuj przepis")
+            etNazwaPrzepisu_dodajPrzepis.setText(intent.getStringExtra("nazwaR"))
+            etOpis_dodajPrzepis.setText(intent.getStringExtra("opisR"))
+        }else{
+            btn_dodajPrzepis.setText("Dodaj przepis")
+        }
+
 
         btn_dodajPrzepis.setOnClickListener{
             val nazwaPrzepisu = etNazwaPrzepisu_dodajPrzepis.text.toString()
@@ -25,10 +35,23 @@ class AddRecipeActivity : AppCompatActivity() {
             {
                 val id = Date().time
                 var database = FirebaseDatabase.getInstance().getReference("Recipes")
-                val recipe = Recipes(id.toString(), FirebaseAuth.getInstance().currentUser!!.uid, nazwaPrzepisu, intent.getStringExtra("kategoria1").toString(),opisPrzepisu)
-                database.child(FirebaseAuth.getInstance().currentUser!!.uid).child(id.toString()).setValue(recipe)
-                Toast.makeText(applicationContext,"Dodano przepis", Toast.LENGTH_SHORT).show()
-                onBackPressed()
+                if (intent.hasExtra("idR"))
+                {
+                    //Edycja przepisu z RecyclerView
+
+
+
+                }else{
+
+                    //Dodawanie przepisu do RecyclerView
+
+                    val recipe = Recipes(id.toString(), FirebaseAuth.getInstance().currentUser!!.uid, nazwaPrzepisu, intent.getStringExtra("kategoria1").toString(),opisPrzepisu)
+                    database.child(FirebaseAuth.getInstance().currentUser!!.uid).child(id.toString()).setValue(recipe)
+                    Toast.makeText(applicationContext,"Dodano przepis", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+
+                }
+
 
             }
 

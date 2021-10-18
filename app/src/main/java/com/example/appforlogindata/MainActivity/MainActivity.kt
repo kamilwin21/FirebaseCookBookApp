@@ -122,12 +122,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     private fun replaceFragment(fragment: Fragment){
         if (fragment !=null){
 
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment).addToBackStack(null)
-
+            transaction.addToBackStack(null)
             transaction.commit()
 
 
@@ -138,6 +139,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+
 
         super.onBackPressed()
     }

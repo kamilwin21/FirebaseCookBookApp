@@ -2,13 +2,18 @@ package com.example.appforlogindata
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appforlogindata.MainActivity.AddCategoryActivity
 import com.example.appforlogindata.MainActivity.Classes.CategoryRecipes
+import com.example.appforlogindata.MainActivity.Fragments.RecipesRecyclerViewFragment
+import com.example.appforlogindata.MainActivity.MainActivity
 import com.example.appforlogindata.MainActivity.RecipesActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -22,7 +27,13 @@ class AdapterRecyclerView_RecipesFragment(val context: Context, val categoriesLi
         return MyViewHolderRecipesFragment(positionList1)
     }
 
+
+
     override fun onBindViewHolder(holder: MyViewHolderRecipesFragment, position: Int) {
+
+
+
+
 
             val title = holder.view.titleRecipesCategory
             val LinearLayout = holder.view.idLinearLayoutToAdapterRecipes
@@ -30,10 +41,20 @@ class AdapterRecyclerView_RecipesFragment(val context: Context, val categoriesLi
             title.text = categoriesList[holder.adapterPosition].nazwaC
             LinearLayout.setOnClickListener {
 
-
+                /*
                 val intent = Intent(holder.view.context.applicationContext, RecipesActivity::class.java)
                 intent.putExtra("kategoria",categoriesList[holder.adapterPosition].nazwaC)
                 holder.view.context.startActivity(intent)
+
+
+                 */
+                //Przejście z RecyclerView kategorii do RecyclerView  przepisy
+                val bundle = Bundle()
+                bundle.putString("kategoria", categoriesList[holder.adapterPosition].nazwaC)
+                val activity = it!!.context as AppCompatActivity
+                val recipesRecyclerViewFragment = RecipesRecyclerViewFragment()
+                recipesRecyclerViewFragment.arguments = bundle
+                activity.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, recipesRecyclerViewFragment).addToBackStack(null).commit()
 
             }
 
@@ -41,6 +62,8 @@ class AdapterRecyclerView_RecipesFragment(val context: Context, val categoriesLi
 
             holder.view.imageViewCategories.setOnClickListener(object : View.OnClickListener{
                 override fun onClick(v: View?) {
+
+
 
                     var popupMenu: PopupMenu = PopupMenu(holder.view.context,holder.view.imageViewCategories)
                     popupMenu.inflate(R.menu.popup_menu_categories)
@@ -69,10 +92,13 @@ class AdapterRecyclerView_RecipesFragment(val context: Context, val categoriesLi
 
 
 
+
                 }
 
 
             })
+
+
 
     }
 
@@ -82,6 +108,11 @@ class AdapterRecyclerView_RecipesFragment(val context: Context, val categoriesLi
 
 
 }
+
+
+
+
+
 
 class MyViewHolderRecipesFragment(val view: View):RecyclerView.ViewHolder(view){
 }
